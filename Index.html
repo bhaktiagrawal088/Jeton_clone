@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One app for all needs single account for all your payment.| Jeton</title>
+  <link rel="icon" type="image/png" href="assets/jeton.png" width="2" height="4" />
+
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <!-- Material-icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Motiva+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Matter.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="script.js" defer></script>
+</head>
+
+
+
+<body class="bg-white text-white overflow-y-scroll scroll-smooth">
+
+  <section class="relative h-screen w-full overflow-hidden text-white">
+
+
+    <header class="w-full  flex justify-between items-center px-8 py-6">
+      <video class="absolute inset-0 h-full w-auto min-w-full object-cover -z-10"
+        src="assets/HomePage_FirstVideo.mp4#t=0.01" type="video/mp4" width="3840" height="2160" autoplay loop muted
+        playsinline preload="auto">
+      </video>
+
+      <h1 class="text-5xl font-bold" style="font-family: 'Motiva Sans', sans-serif;">Jeton</h1>
+
+      <div class="flex items-center space-x-6 relative">
+        <div class="relative hidden md:block">
+          <button id="langBtn"
+            class="flex items-center gap-2 border border-white text-white px-4 py-2 rounded-xl hover:bg-white/20 transition">
+            <span class="material-icons">language</span>
+            <span>EN</span>
+            <span class="material-icons">expand_more</span>
+          </button>
+
+          <div id="langMenu" class="hidden absolute mt-2 w-40 bg-white rounded-xl shadow-lg overflow-hidden">
+            <ul class="text-gray-700 max-h-56 overflow-y-auto">
+              <li class="px-4 py-2 hover:bg-orange-100 cursor-pointer flex justify-between items-center">
+                English <span class="material-icons text-red-500 text-sm">check</span>
+              </li>
+              <li class="px-4 py-2 hover:bg-orange-100 cursor-pointer">Deutsch</li>
+              <li class="px-4 py-2 hover:bg-orange-100 cursor-pointer">Español</li>
+              <li class="px-4 py-2 hover:bg-orange-100 cursor-pointer">Português</li>
+              <li class="px-4 py-2 text-gray-400 cursor-not-allowed">Dutch</li>
+              <li class="px-4 py-2 text-gray-400 cursor-not-allowed">Italiano</li>
+              <li class="px-4 py-2 text-gray-400 cursor-not-allowed">Français</li>
+            </ul>
+          </div>
+        </div>
+
+        <button
+          class="flex items-center gap-2 border border-white text-white px-4 py-2 rounded-xl hover:bg-white/20 transition">
+          Log in
+        </button>
+        <button class="px-4 py-2 rounded-lg bg-white text-red-500 text-base font-medium hover:bg-gray-100 transition">
+          Sign up
+        </button>
+      </div>
+    </header>
+
+    <div class="relative flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 top-40 h-[80%]">
+      <div class="max-w-xl">
+        <h1 class="text-8xl font-medium leading-tight">One app<br>for all needs</h1>
+      </div>
+
+      <div class="mt-10 lg:mt-0 text-right space-y-8 mr-32">
+        <h2 class="text-2xl font-semibold leading-tight text-left">
+          Single account for all your<br>payments.
+        </h2>
+        <div class="flex space-x-8">
+          <a href="https://apps.apple.com/us/app/jeton/id6499320378" target="_blank"
+            class="flex items-center border border-white text-white p-0.1 rounded-xl gap-3 hover:bg-white/10 transition">
+            <img src="assets/app-store-neutral.svg" alt="Get it on the App Store" class="h-12 w-auto">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.jeton.app" target="_blank"
+            class="flex items-center border border-white text-white p-0.1 rounded-xl gap-3 hover:bg-white/10 transition">
+            <img src="assets/google-play-neutral.svg" alt="Get it on Google Play" class="h-12 w-auto">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <nav
+      class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-red-500 text-white flex rounded-full overflow-hidden">
+      <button class="flex items-center gap-2 px-4 py-2 hover:bg-white/10 transition">
+        <span class="material-icons">home</span>
+      </button>
+      <a href="#" class="px-6 py-3 hover:bg-white/10 transition">Personal
+        <span class="material-icons text-sm">expand_more</span>
+      </a>
+      <a href="#" class="px-6 py-3 hover:bg-white/10 transition">Business
+        <span class="material-icons text-sm">arrow_upward</span>
+      </a>
+      <a href="#" class="px-6 py-3 hover:bg-white/10 transition">Company
+        <span class="material-icons text-sm">expand_more</span>
+      </a>
+    </nav>
+
+    <button
+      class="absolute bottom-6 left-24 bg-white/30 text-white px-2 py-1 rounded-full backdrop-blur-md hover:bg-white/50 transition border border-white/30 flex items-center gap-2">
+      <span class="material-icons animate-bounce text-sm">arrow_downward</span>
+      Scroll
+    </button>
+  </section>
+
+
+  <section
+    class="relative h-screen flex flex-col items-center justify-center min-h-screen bg-white overflow-hidden -z-10">
+
+    <img id="card-exchange" src="assets/exchange.png" alt="Exchange Card"
+      class="absolute -left-80 top-80 w-52 rounded-2xl z-20">
+    <img id="card-eur" src="assets/EUR.png" alt="EUR Card" class="absolute -right-60 top-10 w-52 rounded-2xl z-20">
+    <img id="card-girl" src="assets/girl.png" alt="Jane Thomas Card"
+      class="absolute left-20 -bottom-60 w-52 rounded-2xl z-20">
+    <img id="card-coffee" src="assets/coffee.png" alt="Coffee Card"
+      class="absolute -right-80 bottom-40 w-52 rounded-2xl z-20">
+    <img id="card-men" src="assets/men.png" alt="Men Card"
+      class="absolute -left-80 top-2 w-52 rounded-2xl shadow-xl z-20">
+
+    <h1 class="hero-text text-[4vw] md:text-[2vw] font-bold text-[#f73b20] text-center leading-tight absolute z-0">
+      Unify your<br>finances
+    </h1>
+
+
+  </section>
+
+
+  <section class="relative h-[50vh] bg-white text-black flex flex-col items-center justify-center px-6 -z-10">
+    <div id="scroll-steps" class="flex flex-col items-center gap-6 ">
+      <div id="add" class="b-item flex items-center gap-2 text-8xl font-bold text-green-500">
+        <span class="bg-green-500 p-3 rounded-2xl text-white flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-[2.5rem] h-[2.5rem]" fill="none" stroke="currentColor"
+            stroke-width="2" viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+          </svg>
+        </span>
+        Add
+      </div>
+      <div id="send" class="b-item flex items-center gap-2 text-8xl font-bold text-blue-500">
+        <span class="bg-blue-500 p-3 rounded-2xl text-white flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-[2.5rem] h-[2.5rem]" fill="none" stroke="currentColor"
+            stroke-width="2" viewBox="0 0 24 24">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+          </svg>
+        </span>
+        Send
+      </div>
+      <div id="exchange" class="b-item flex items-center gap-2 text-8xl font-bold text-rose-500">
+        <span class="bg-rose-500 p-3 rounded-2xl text-white flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-[2.5rem] h-[2.5rem]" fill="none" stroke="currentColor"
+            stroke-width="2" viewBox="0 0 24 24">
+            <path d="M16 3l4 4-4 4M20 7H4" />
+            <path d="M8 21l-4-4 4-4M4 17h16" />
+          </svg>
+        </span>
+        Exchange
+      </div>
+    </div>
+  </section>
+  <div class="h-[30vh]"></div>
+
+
+  <section class="relative h-[180vh] w-full overflow-hidden">
+    <video class="absolute inset-0 h-full w-full object-cover -z-10" src="assets/HomePage_SecondVideo.mp4"
+      type="video/mp4" autoplay loop muted playsinline preload="auto"></video>
+
+    <div class="relative z-10 flex flex-col justify-center h-full px-10 md:px-20">
+      <h1 class="text-white text-4xl md:text-6xl lg:text-7xl font-bold leading-tight max-w-4xl">
+        All your finances, <br /> in one app.
+      </h1>
+
+      <p class="text-white font-bold text-2xl mt-4">
+        Join 1M+ happy users today.
+      </p>
+
+      <a
+        class="inline-block mt-6 w-36 text-center bg-white text-red-500 px-1 py-3 rounded-lg font-semibold hover:bg-red-500 hover:text-white transition">
+        Get Started
+      </a>
+
+      <div class="flex gap-4 mt-48">
+        <a href="https://play.google.com/store/apps/details?id=com.jeton.app" target="_blank"
+          class="flex items-center border border-white text-white p-0.1 rounded-xl gap-3  hover:bg-white/10 transition">
+          <img src="assets/google-play-neutral.svg" alt="Get it on Google Play" class="h-11 w-auto">
+        </a>
+
+        <a href="https://apps.apple.com/us/app/jeton/id6499320378"
+          class="flex items-center border border-500 text-white p-0.1 rounded-xl gap-3  hover:bg-white/10 transition">
+          <img src="assets/app-store-neutral.svg" alt="App Store" class="h-11   w-auto">
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="h-[10vh]"></div>
+
+  <section class="flex flex-col items-center justify-center text-center py-20 px-6 bg-white ">
+    <span class="px-4 py-1 border border-red-500 rounded-full text-red-500 text-sm font-medium mb-6">
+      Jeton Card
+    </span>
+    <h2 class="text-3xl md:text-5xl font-semibold text-red-500 leading-snug max-w-3xl mb-10">
+      Contactless payments? Sure. <br />
+      Spending limits? Check. <br />
+      Card freezing? Also check.
+    </h2>
+    <div class="max-w-5xl mt-20 rounded-3xl overflow-hidden shadow-drop-2-center">
+      <div class="rounded-3xl overflow-hidden">
+        <video id="scroll-video" class="w-[120vh] h-[70vh] object-cover transition-transform duration-200" autoplay
+          muted loop playsinline>
+          <source src="assets/HomePage_ThirdVideo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+
+    <h2 class="text-4xl md:text-7xl font-semibold text-red-500 leading-snug max-w-3xl  mt-20 mb-10">
+      Jeton Card: Your Go- <br />
+      To for Every Purchase
+    </h2>
+
+    <Button class="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition">
+      Learn more
+    </Button>
+
+  </section>
+  <div class="h-[25vh]"></div>
+
+
+<style>
+  /* Canvas is inside the section */
+#flagpit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  background: transparent;
+  z-index: -1;
+}
+
+/* Overlay content above flags */
+.overlay,
+#fromDropdown,
+#toDropdown,
+.converter-box {
+  position: relative;
+  z-index: 5;
+}
+</style>
+  <section id="flag-section" class="relative py-20 bg-white text-center -z-10">
+    <canvas id="flagpit"></canvas>
+    <div class="overlay inline-block border border-[#f73b20] text-[#f73b20] px-4 py-1 rounded-full text-base mb-6">
+      Exchange
+    </div>
+
+    <h2 class="overlay text-4xl md:text-7xl font-bold text-[#f73b20] mb-4">
+      Convert fiat<br> cash easily.
+    </h2>
+
+    <p class="overlay text-xs text-[#f39c90] max-w-xl mx-auto mb-10">
+      *The displayed conversion rates and fees may vary during<br>
+      the currency exchange process, and the rates shown were<br>
+      last updated at 05:29 on 00.09.2025.
+    </p>
+
+    <div class="relative flex flex-col items-center space-y-4 text-black -z-10">
+      <div class="w-[350px] bg-[#fff1f1] px-4 py-3 rounded-2xl mt-8 flex flex-col space-y-3">
+        <div class="relative" id="fromDropdown">
+          <div id="fromBtn" class="flex items-center justify-between bg-[#fff1f1] px-4 py-3 rounded-2xl cursor-pointer">
+            <div class="flex items-center space-x-2">
+              <img id="fromFlag" src="https://flagcdn.com/w20/eu.png" class="w-6 h-6 rounded-full">
+              <span id="fromCode" class="font-semibold">EUR</span>
+              <span id="fromName" class="text-sm text-gray-500">Euro</span>
+            </div>
+            <span class="text-red-500">⌄</span>
+          </div>
+          <div id="fromList"
+            class="absolute mt-2 w-full bg-white rounded-2xl shadow-lg max-h-60 overflow-y-auto hidden"></div>
+        </div>
+
+        <div
+          class="flex items-center bg-[#fff1f1] px-4 py-3 rounded-2xl focus-within:border-2 focus-within:border-[#f73b20]">
+          <span id="fromSymbol" class="text-2xl font-bold mr-2">€</span>
+          <input id="fromAmount" type="number" value="10"
+            class="bg-transparent text-2xl font-semibold focus:outline-none w-full">
+        </div>
+      </div>
+
+      <div id="swapBtn" class="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow cursor-pointer">
+        <span class="text-xl">⇅</span>
+      </div>
+
+      <div class="w-[350px] bg-[#fff1f1] px-4 py-3 rounded-2xl flex flex-col space-y-3">
+        <div class="relative" id="toDropdown">
+          <div id="toBtn" class="flex items-center justify-between bg-[#fff1f1] px-4 py-3 rounded-2xl cursor-pointer">
+            <div class="flex items-center space-x-2">
+              <img id="toFlag" src="https://flagcdn.com/w20/gb.png" class="w-6 h-6 rounded-full">
+              <span id="toCode" class="font-semibold">GBP</span>
+              <span id="toName" class="text-sm text-gray-500">British Pound</span>
+            </div>
+            <span class="text-red-500">⌄</span>
+          </div>
+          <div id="toList" class="absolute mt-2 w-full bg-white rounded-2xl shadow-lg max-h-60 overflow-y-auto hidden">
+          </div>
+        </div>
+
+        <div class="flex items-center bg-[#fff1f1] px-4 py-3 rounded-2xl">
+          <span id="toSymbol" class="text-2xl font-bold mr-2">£</span>
+          <input id="toAmount" type="text" value="8.61" readonly
+            class="bg-transparent text-2xl font-semibold focus:outline-none w-full">
+        </div>
+      </div>
+    </div>
+    <div class="h-10"></div>
+  </section>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const rates = {
+        EUR: { USD: 1.1, GBP: 0.86, INR: 90 },
+        USD: { EUR: 0.91, GBP: 0.78, INR: 82 },
+        GBP: { EUR: 1.16, USD: 1.28, INR: 105 },
+        INR: { EUR: 0.011, USD: 0.012, GBP: 0.0095 }
+      };
+
+      const currencies = {
+        EUR: { name: "Euro", symbol: "€", flag: "https://flagcdn.com/w20/eu.png" },
+        USD: { name: "US Dollar", symbol: "$", flag: "https://flagcdn.com/w20/us.png" },
+        GBP: { name: "British Pound", symbol: "£", flag: "https://flagcdn.com/w20/gb.png" },
+        INR: { name: "Indian Rupee", symbol: "₹", flag: "https://flagcdn.com/w20/in.png" }
+      };
+
+      const fromBtn = document.getElementById("fromBtn");
+      const fromList = document.getElementById("fromList");
+      const fromCode = document.getElementById("fromCode");
+      const fromName = document.getElementById("fromName");
+      const fromFlag = document.getElementById("fromFlag");
+      const fromSymbol = document.getElementById("fromSymbol");
+      const fromAmount = document.getElementById("fromAmount");
+
+      const toBtn = document.getElementById("toBtn");
+      const toList = document.getElementById("toList");
+      const toCode = document.getElementById("toCode");
+      const toName = document.getElementById("toName");
+      const toFlag = document.getElementById("toFlag");
+      const toSymbol = document.getElementById("toSymbol");
+      const toAmount = document.getElementById("toAmount");
+
+      const swapBtn = document.getElementById("swapBtn");
+
+      function populateList(list, type) {
+        list.innerHTML = "";
+        for (let code in currencies) {
+          const div = document.createElement("div");
+          div.className = "p-2 hover:bg-[#f73b20] hover:text-white flex items-center space-x-2 cursor-pointer";
+          div.dataset.code = code;
+          div.innerHTML = `<img src="${currencies[code].flag}" class="w-6 h-6 rounded-full">
+                       <span class="font-semibold">${code}</span>
+                       <span class="text-sm">${currencies[code].name}</span>`;
+          div.addEventListener("click", () => {
+            if (type === "from") {
+              fromCode.textContent = code;
+              fromName.textContent = currencies[code].name;
+              fromFlag.src = currencies[code].flag;
+              fromSymbol.textContent = currencies[code].symbol;
+            } else {
+              toCode.textContent = code;
+              toName.textContent = currencies[code].name;
+              toFlag.src = currencies[code].flag;
+              toSymbol.textContent = currencies[code].symbol;
+            }
+            list.classList.add("hidden");
+            convert();
+          });
+          list.appendChild(div);
+        }
+      }
+
+      populateList(fromList, "from");
+      populateList(toList, "to");
+
+      fromBtn.addEventListener("click", (e) => { e.stopPropagation(); fromList.classList.toggle("hidden"); });
+      toBtn.addEventListener("click", (e) => { e.stopPropagation(); toList.classList.toggle("hidden"); });
+
+      document.addEventListener("click", () => {
+        fromList.classList.add("hidden");
+        toList.classList.add("hidden");
+      });
+
+      function convert() {
+        const from = fromCode.textContent;
+        const to = toCode.textContent;
+        const amount = parseFloat(fromAmount.value) || 0;
+        let converted = amount;
+        if (from !== to) converted = (amount * rates[from][to]).toFixed(2);
+        toAmount.value = converted;
+      }
+
+      fromAmount.addEventListener("input", convert);
+
+      swapBtn.addEventListener("click", () => {
+        const tempCode = fromCode.textContent;
+        fromCode.textContent = toCode.textContent;
+        toCode.textContent = tempCode;
+
+        fromName.textContent = currencies[fromCode.textContent].name;
+        toName.textContent = currencies[toCode.textContent].name;
+
+        fromFlag.src = currencies[fromCode.textContent].flag;
+        toFlag.src = currencies[toCode.textContent].flag;
+
+        fromSymbol.textContent = currencies[fromCode.textContent].symbol;
+        toSymbol.textContent = currencies[toCode.textContent].symbol;
+
+        const tempAmount = fromAmount.value;
+        fromAmount.value = toAmount.value;
+        toAmount.value = tempAmount;
+
+        convert();
+      });
+
+      convert();
+    });
+
+    let flagInit = false;
+    let engine, render, runner;
+
+    function initFlagSection() {
+      if (flagInit) return;
+      flagInit = true;
+
+      (async function () {
+        const section = document.getElementById('flag-section');
+        const canvas = document.getElementById('flagpit');
+        canvas.width = section.offsetWidth;
+        canvas.height = section.offsetHeight;
+
+        if (typeof Matter === 'undefined') {
+          await new Promise(res => {
+            const s = document.createElement('script');
+            s.src = "https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js";
+            s.onload = res;
+            document.body.appendChild(s);
+          });
+        }
+
+        const { Engine, Render, Runner, World, Bodies, Body, Mouse, MouseConstraint } = Matter; 
+        engine = Engine.create();
+        const world = engine.world;
+        render = Render.create({
+          canvas: canvas,
+          engine: engine,
+          options: { width: canvas.width, height: canvas.height, wireframes: false, background: 'transparent' }
+        });
+        Render.run(render);
+        runner = Runner.create();
+        Runner.run(runner, engine);
+
+        let floor = Bodies.rectangle(canvas.width / 2, canvas.height + 60, canvas.width * 2, 120, { isStatic: true, render: { visible: false } });
+        let left = Bodies.rectangle(-60, canvas.height / 2, 120, canvas.height * 2, { isStatic: true, render: { visible: false } });
+        let right = Bodies.rectangle(canvas.width + 60, canvas.height / 2, 120, canvas.height * 2, { isStatic: true, render: { visible: false } });
+        World.add(world, [floor, left, right]);
+
+        // Flags
+        const flagUrls = [
+          "assets/w2560/ad.png", "assets/w2560/ae.png" , "assets/w2560/af.png" , "assets/w2560/ag.png",
+          "assets/w2560/ai.png" , "assets/w2560/al.png", "assets/w2560/am.png" , "assets/w2560/ao.png",
+          "assets/w2560/aq.png" , "assets/w2560/ar.png", "assets/w2560/as.png" , "assets/w2560/at.png",
+          "assets/w2560/au.png", "assets/w2560/aw.png" , "assets/w2560/ax.png", "assets/w2560/az.png",
+          "assets/w2560/bt.png", "assets/w2560/bl.png" , "assets/w2560/bf.png", "assets/w2560/br.png",
+          "assets/w2560/bn.png", "assets/w2560/bg.png", "assets/w2560/br.png", "assets/w2560/in.png",
+          "assets/w2560/ch.png", "assets/w2560/cy.png", "assets/w2560/cz.png","assets/w2560/cn.png",
+          "assets/w2560/de.png", "assets/w2560/gb-eng.png", "assets/w2560/gb-nir.png", "assets/w2560/gb-sct.png",
+          "assets/w2560/gb-sct.png", "assets/w2560/gb-wls.png", "assets/w2560/ir.png", "assets/w2560/it.png",
+          "assets/w2560/jp.png", "assets/w2560/ke.png", "assets/w2560/kr.png", "assets/w2560/kw.png",
+          "assets/w2560/ky.png", "assets/w2560/la.png", "assets/w2560/lb.png", "assets/w2560/li.png",
+          "assets/w2560/lt.png", "assets/w2560/lu.png", "assets/w2560/lv.png", "assets/w2560/ma.png",
+          "assets/w2560/mc.png", "assets/w2560/md.png", "assets/w2560/me.png", "assets/w2560/mg.png",
+          "assets/w2560/mk.png", "assets/w2560/ml.png", "assets/w2560/mm.png", "assets/w2560/mn.png",
+          "assets/w2560/mo.png", "assets/w2560/mp.png", "assets/w2560/mq.png", "assets/w2560/mr.png",
+          "assets/w2560/mt.png", "assets/w2560/mu.png", "assets/w2560/mv.png", "assets/w2560/mx.png",
+          "assets/w2560/my.png", "assets/w2560/mz.png", "assets/w2560/na.png", "assets/w2560/nc.png",
+          "assets/w2560/ne.png", "assets/w2560/ng.png", "assets/w2560/ni.png", "assets/w2560/nl.png",
+          "assets/w2560/no.png", "assets/w2560/np.png", "assets/w2560/nz.png", "assets/w2560/om.png",
+          "assets/w2560/pa.png", "assets/w2560/pe.png", "assets/w2560/pf.png", "assets/w2560/pg.png",
+          "assets/w2560/ph.png", "assets/w2560/pk.png", "assets/w2560/pl.png", "assets/w2560/pm.png",
+          "assets/w2560/pr.png", "assets/w2560/ps.png", "assets/w2560/pt.png", "assets/w2560/pw.png",
+          "assets/w2560/py.png", "assets/w2560/qa.png", "assets/w2560/re.png", "assets/w2560/ro.png",
+          "assets/w2560/rs.png", "assets/w2560/ru.png", "assets/w2560/rw.png", "assets/w2560/sa.png",
+          "assets/w2560/sb.png", "assets/w2560/sc.png", "assets/w2560/sd.png", "assets/w2560/se.png",
+          "assets/w2560/sg.png", "assets/w2560/sh.png", "assets/w2560/si.png", "assets/w2560/sk.png",
+          "assets/w2560/sl.png", "assets/w2560/sm.png", "assets/w2560/sn.png", "assets/w2560/so.png",
+          "assets/w2560/sr.png", "assets/w2560/ss.png", "assets/w2560/st.png", "assets/w2560/sv.png",
+          "assets/w2560/sx.png", "assets/w2560/sy.png", "assets/w2560/sz.png", "assets/w2560/td.png",
+          "assets/w2560/tg.png", "assets/w2560/th.png", "assets/w2560/tj.png", "assets/w2560/tl.png",
+          "assets/w2560/tm.png", "assets/w2560/tn.png", "assets/w2560/to.png", "assets/w2560/tr.png",
+          "assets/w2560/tt.png", "assets/w2560/tv.png", "assets/w2560/tw.png", "assets/w2560/tz.png",
+          "assets/w2560/ua.png", "assets/w2560/ug.png", "assets/w2560/us.png", "assets/w2560/uy.png",
+          "assets/w2560/uz.png", "assets/w2560/va.png", "assets/w2560/vc.png", "assets/w2560/ve.png",
+          "assets/w2560/vn.png", "assets/w2560/vu.png", "assets/w2560/wf.png", "assets/w2560/ws.png",
+          "assets/w2560/ye.png", "assets/w2560/za.png", "assets/w2560/zm.png", "assets/w2560/zw.png",
+          "assets/w2560/gb.png"
+        ];
+        const imgs = await Promise.all(flagUrls.map(url => new Promise(res => {
+          const img = new Image(); img.crossOrigin = 'anonymous';
+          img.onload = () => res(img); img.onerror = () => res(null); img.src = url;
+        })));
+        const RADIUS = 40;
+        const textures = imgs.map(img => {
+          const c = document.createElement('canvas'); c.width = c.height = RADIUS * 2;
+          const ctx = c.getContext('2d');
+          ctx.beginPath(); ctx.arc(RADIUS, RADIUS, RADIUS, 0, 2 * Math.PI); ctx.clip();
+          if (img) {
+            const scale = Math.max(RADIUS * 2 / img.width, RADIUS * 2 / img.height);
+            ctx.drawImage(img, (RADIUS * 2 - img.width * scale) / 2, (RADIUS * 2 - img.height * scale) / 2, img.width * scale, img.height * scale);
+          } else { ctx.fillStyle = "#ddd"; ctx.fillRect(0, 0, RADIUS * 2, RADIUS * 2); }
+          return c.toDataURL();
+        });
+
+        for (let i = 0; i < textures.length; i++) {
+          const body = Bodies.circle(80 + i * 60, -60, RADIUS, {
+            restitution: 0.9, friction: 0.2, frictionAir: 0.01,
+            frictionStatic: 0.1, density: 0.002,
+            render: { sprite: { texture: textures[i], xScale: 1, yScale: 1 } }
+          });
+          Body.rotate(body, (Math.random() - 0.5) * 0.5);
+          World.add(world, body);
+        }
+
+        const mouse = Mouse.create(render.canvas);
+        const mouseConstraint = MouseConstraint.create
+        (engine, { mouse, constraint: 
+          { stiffness: 0.18, 
+                angularStiffness: 0,
+
+            render: { visible: false } } });
+        World.add(world, mouseConstraint);
+        render.mouse = mouse;
+
+        Matter.Events.on(mouseConstraint, "enddrag", (event) => {
+          if (event.body) {
+            const forceMagnitude = 0.02 * event.body.mass;
+            Matter.Body.applyForce(event.body, event.body.position, {
+              x: (Math.random() - 0.5) * forceMagnitude,
+              y: -forceMagnitude
+            });
+          }
+        });
+
+        window.addEventListener('resize', () => {
+          canvas.width = section.offsetWidth;
+          canvas.height = section.offsetHeight;
+          render.options.width = canvas.width;
+          render.options.height = canvas.height;
+          Body.setPosition(floor, { x: canvas.width / 2, y: canvas.height + 60 });
+          Body.setPosition(left, { x: -60, y: canvas.height / 2 });
+          Body.setPosition(right, { x: canvas.width + 60, y: canvas.height / 2 });
+        });
+      })();
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const canvas = document.getElementById('flagpit');
+        if (entry.isIntersecting) {
+          canvas.style.display = "block"; // show canvas
+          if (!flagInit) {
+            initFlagSection(); // initialize once
+          } else {
+            // Resume simulation
+            if (runner && typeof Runner !== "undefined") Runner.run(runner, engine);
+            if (render && typeof Render !== "undefined") Render.run(render);
+          }
+        } else {
+          // canvas.style.display = "none"; // hide canvas -->
+          if (flagInit) {
+            // Pause simulation
+            if (runner && typeof Runner !== "undefined") Runner.stop(runner);
+            if (render && render.canvas) {
+              const ctx = render.context;
+              ctx.clearRect(0, 0, render.canvas.width, render.canvas.height);
+            }
+          }
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(document.getElementById('flag-section'));
+  </script>
+
+
+  <div class="h-[2vh]"></div>
+
+  <section class="relative bg-cover bg-center bg-no-repeat h-[150vh] flex items-center justify-center -z-10"
+    style="background-image: url(assets/testimonials.jpg)">
+    <div class="absolute inset-0 "></div>
+    <div class="relative text-center text-white px-6 md:px-20">
+      <h2 class="text-4xl md:text-7xl font-bold mb-12">Hear it from our clients</h2>
+      <div class="flex flex-col gap-6 max-w-lg mx-auto">
+        <div class="bg-gray-600 opacity-90 text-left p-4  rounded-xl shadow-lg w-[350px] mx-auto">
+          <p class="mb-4"><span class="font-bold">Recommended</span><br>
+            Very happy with the app. Does what it says, simple payments and transactions.
+            Quick account verification and withdrawals. 24/7 support available.
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-green-300 flex items-center justify-center font-bold text-black">
+              VK
+            </div>
+            <span class="font-semibold">Vamsi K.</span>
+          </div>
+        </div>
+
+        <div class="bg-gray-600 opacity-90 text-left p-4 rounded-xl shadow-lg w-[350px] mx-auto">
+          <p class="mb-4">
+            <span class="font-bold">Awesome app very user friendly</span><br>
+            Would highly recommend Jeton to my friends.
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-blue-200 flex items-center justify-center font-bold text-black">
+              LA
+            </div>
+            <span class="font-semibold">Leonie A.</span>
+          </div>
+        </div>
+        <div class="bg-gray-600 opacity-90 text-left p-4 rounded-xl shadow-lg w-[350px] mx-auto">
+          <p class="mb-4">
+            <span class="font-bold">The best payment solution for German customers</span><br>
+            I've been a Jeton user for a few years! The support was always great and I'm always able to make my payments
+            to the websites I want with no problem.
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-yellow-200 flex items-center justify-center font-bold text-black">
+              KR
+            </div>
+            <span class="font-semibold">Karl R.</span>
+          </div>
+        </div>
+        <div class="bg-gray-600 opacity-90 text-left p-4 rounded-xl shadow-lg w-[350px] mx-auto">
+          <p class="mb-4">
+            <span class="font-bold">Easy and Fast</span><br>
+            Great app for fast and easy transfers. I have been using Jeton for a while now without any problem. I have
+            recently started using their Jeton Card for my everyday purchases too.
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-pink-200 flex items-center justify-center font-bold text-black">
+              DP
+            </div>
+            <span class="font-semibold">Dennis P.</span>
+          </div>
+
+        </div>
+      </div>
+
+  </section>
+
+
+
+  <section class="flex flex-col items-center justify-center text-center py-32 px-6">
+
+    <h1 class="text-5xl md:text-9xl font-bold text-[#f73b20] leading-tight">
+      1 million users,<br>plus you.
+    </h1>
+
+    <p class="mt-6 text-2xl font-bold text-[#f73b20]">
+      It only takes few seconds to get started.
+    </p>
+
+    <div class="mt-10 flex gap-6 flex-wrap justify-center">
+
+      <a href="https://apps.apple.com/us/app/jeton/id6499320378"
+        class="flex items-center border border-red-500 text-[#f73b20] p-0.1 rounded-xl gap-3  hover:bg-white/10 transition">
+        <img src="assets/app-store-orange.svg" alt="App Store" class="h-11   w-auto">
+      </a>
+
+      <a href="https://play.google.com/store/apps/details?id=com.jeton.app" target="_blank"
+        class="flex items-center border border-red-500 text-[#f73b20] p-0.1 rounded-xl gap-3  hover:bg-white/10 transition">
+        <img src="assets/google-play-orange.svg" alt="Get it on Google Play" class="h-11 w-auto">
+      </a>
+    </div>
+  </section>
+
+  <div class="h-[30vh]"></div>
+
+  <footer class="bg-white text-[#f73b20] py-12 px-6 md:px-20 " style="font-family: 'Motiva Sans', sans-serif;">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-10 text-base">
+
+      <div>
+        <h3 class="font-base mb-3 text-[#f59b8f]">Get Started</h3>
+        <ul class="space-y-2 font-base">
+          <li><a href="#" class="hover:underline">Sign up</a></li>
+          <li><a href="#" class="hover:underline">Login</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-base mb-3 text-[#f59b8f]">Discover</h3>
+        <ul class="space-y-2 font-base">
+          <li><a href="#" class="hover:underline">Jeton Card</a></li>
+          <li><a href="#" class="hover:underline">Fees</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-base mb-3 text-[#f59b8f]">Company</h3>
+        <ul class="space-y-2 font-base">
+          <li><a href="#" class="hover:underline">About</a></li>
+          <li><a href="#" class="hover:underline">Newsroom</a></li>
+          <li><a href="#" class="hover:underline">Partnerships</a></li>
+          <li><a href="#" class="hover:underline">Media Assets</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-base mb-3 text-[#f59b8f]">Legal</h3>
+        <ul class="space-y-2 font-base">
+          <li><a href="#" class="hover:underline">Cookie Policy</a></li>
+          <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+          <li><a href="#" class="hover:underline">Terms and Conditions</a></li>
+          <li><a href="#" class="hover:underline">Disclaimers</a></li>
+          <li><a href="#" class="hover:underline">AML Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-base mb-3 text-[#f59b8f]">Help</h3>
+        <ul class="space-y-2 font-base">
+          <li><a href="#" class="hover:underline">Developers</a></li>
+          <li><a href="#" class="hover:underline">FAQ</a></li>
+          <li><a href="#" class="hover:underline">Support</a></li>
+          <li><a href="#" class="hover:underline">Release Notes</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="mt-12 flex flex-col md:flex-row items-center justify-between gap-8">
+
+      <div class="flex flex-wrap justify-center md:justify-end gap-4 mr-0 md:mr-20">
+
+        <a href="https://play.google.com/store/apps/details?id=com.jeton.app" target="_blank"
+          class="flex items-center border border-red-500 text-[#f73b20] px-3 py-1 rounded-xl gap-3 hover:bg-white/10 transition">
+          <img src="assets/google-play-orange.svg" alt="Get it on Google Play" class="h-10 w-auto">
+        </a>
+
+        <a href="https://apps.apple.com/us/app/jeton/id6499320378"
+          class="flex items-center border border-red-500 text-[#f73b20] px-3 py-1 rounded-xl gap-3 hover:bg-white/10 transition">
+          <img src="assets/app-store-orange.svg" alt="App Store" class="h-10 w-auto">
+        </a>
+
+      </div>
+
+      <div class="flex gap-6 flex-wrap justify-center  mr-40 ">
+        <img src="assets/footer1.png" alt="ISO" class="h-8">
+        <img src="assets/footer2.png" alt="EBA" class="h-8">
+        <img src="assets/footer3.png" alt="Certified" class="h-8">
+        <img src="assets/footer4.png" alt="Certified" class="h-8">
+        <img src="assets/footer5.png" alt="Certified" class="h-8">
+        <img src="assets/footer2.png" alt="EBA" class="h-8">
+
+      </div>
+
+      <div class="flex gap-4 mr-1">
+        <a href="#" class="bg-[#f73b20] text-white w-8 h-8 flex items-center justify-center rounded-full">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="bg-[#f73b20] text-white w-8 h-8 flex items-center justify-center rounded-full">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="bg-[#f73b20] text-white w-8 h-8 flex items-center justify-center rounded-full">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+  <section class="relative bg-white py-20 -z-10">
+
+    <h1 id="jeton-title" class="text-[18vw] md:text-[36vw] text-center font-bold text-[#f73b20] leading-none">
+      Jeton
+    </h1>
+
+    <div class="w-full px-4 md:px-8 mt-8 text-sm md:text-sm text-[#f39c90] leading-relaxed">
+      <p>
+        © 2025 | www.jeton.com is owned and operated by LA Orange CY Limited (Gladstonos, 116 M. Kyprianou House, 3&4th
+        Floor, 3032, Limassol, Cyprus.)
+        LA Orange CY Limited trading as Jeton, is authorised by the Central Bank of Cyprus under the Electronic Money
+        Law of 2012 and 2018 (Law 81(I)/2012)
+        for distributing or redeeming electronic money (e-money), with Licence No: 115.1.3.66. LA Orange CY Limited has
+        been incorporated in the Republic of Cyprus
+        under the provisions of the Companies Law (Cap 113) with registration number HE 424807, with its registered
+        office address at Gladstonos, 116 M. Kyprianou House,
+        3&4th Floor, 3032, Limassol, Cyprus.
+      </p>
+      <br>
+      <p>
+        LA Orange Limited, trading as Jeton, is authorised by the Financial Conduct Authority under the Electronic Money
+        Regulations 2011 for distributing or redeeming
+        electronic money (e-money) and providing certain payment services on behalf of an e-money institution, with FCA
+        registration number 902088. Company Name:
+        LA ORANGE LIMITED, LEI code: 8945009645M8PDOAD211, BIC Value: ORAGGB22 (Swift Code). LA Orange Limited is
+        registered in England and Wales, Company Number 11535714,
+        with its registered office address at The Shard Floor 24/25, 32 London Bridge Street, London, SE1 9SG, United
+        Kingdom.
+      </p>
+    </div>
+
+    <div class="absolute top-4 right-6 text-[#f73b20] text-sm font-medium">
+      Made by Büro
+    </div>
+
+    <div class="w-full mt-10 pb-16 grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-8">
+      <div class="relative rounded-3xl overflow-hidden">
+        <img src="assets/last2.jpg" alt="West Ham United"
+          class="w-full h-[180px] md:h-[260px] object-cover rounded-3xl" />
+
+        <div class="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-red-950 via-red-800/90 to-transparent">
+        </div>
+
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white">
+          <img src="assets/west ham.png" alt="West Ham Logo" class="w-32 md:w-56" />
+        </div>
+      </div>
+
+      <div class="relative rounded-3xl overflow-hidden flex flex-col justify-center items-center text-white">
+        <img src="assets/last1.jpg" alt="Ambassadors" class="w-full h-[180px] md:h-[260px] object-cover rounded-3xl" />
+        <div
+          class="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-orange-800 via-orange-800/90 to-transparent">
+        </div>
+
+        <div class="absolute bottom-6 text-center px-4">
+          <p class="text-sm">Online Payments Brand Ambassadors</p>
+          <p class="text-lg md:text-xl font-semibold">
+            Alexis Mac Allister & Kou Itakura
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="w-[10vh]"></div>
+
+
+</body>
+
+</html>

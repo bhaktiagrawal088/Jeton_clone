@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: white;
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+}
+.item {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+.item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#langMenu ul::-webkit-scrollbar {
+  width: 6px;
+}
+#langMenu ul::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+  border-radius: 10px;
+}
+#langMenu ul::-webkit-scrollbar-thumb:hover {
+  background: #d1d1d1;
+}
+
+.item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.b-item {
+  opacity: 0;
+  transform: translateY(100vh);
+  transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+
